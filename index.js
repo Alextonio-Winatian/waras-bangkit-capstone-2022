@@ -3,6 +3,7 @@ const mysql = require("mysql")
 const app = express();
 
 app.use(express.json());
+
 const port = process.env.port || 8080;
 app.listen(port, ()=>{
 	console.log(`Waras REST API listening on port ${port}`);
@@ -24,9 +25,9 @@ app.get("/:tbuserwaras", async (req, res)=>{
 });
 
 const pool = mysql.createPool({
-	user: root,
-	password: war140522,
-	database: dbwaras,
+	user: process.env.DB_USER,
+	password: process.env.DB_PASS,
+	database: process.env.DB_NAME,
 	socketPath: `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`,
 });
 
