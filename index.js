@@ -14,7 +14,7 @@ app.get("/", async (req, res)=> {
 });
 
 app.get("/:tbuserwaras", async (req, res)=>{
-	const query = "SELECT * FROM tbuserwaras WHERE name= ?";
+	const query = "SELECT * FROM tbuserwaras WHERE username= ?";
 	pool.query(query, [req.params.tbuserwaras], (error, result)=>{
 		if (!result[0]) {
 			res.json({ status: "Not found!"});
@@ -42,7 +42,7 @@ app.post("/", async (req, res)=>{
 		created_at: req.body.created_at,
 		updated_at: req.body.updated_at,
 	}
-	const query = "INSERT INTO breeds VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+	const query = "INSERT INTO tbuserwaras VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 	pool.query(query, Object.values(data), (error)=>{
 		if (error){
 			res.json({ status: "failure", reason: error.code });
