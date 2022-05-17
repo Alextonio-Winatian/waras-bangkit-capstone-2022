@@ -25,10 +25,10 @@ app.get("/:tbuserwaras", async (req, res)=>{
 });
 
 const pool = mysql.createPool({
-	user: root,
-	password: war140522,
-	database: dbwaras,
-	socketPath: `/cloudsql/db-capstone-waras:asia-southeast2:waras-sql`,
+	user: "root",
+	password: "war140522",
+	database: "dbwaras",
+	socketPath: "/cloudsql/db-capstone-waras:asia-southeast2:waras-sql",
 });
 
 app.post("/", async (req, res)=>{
