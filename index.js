@@ -19,7 +19,7 @@ app.get("/:tbuserwaras", async (req, res)=>{
 		if (!result[0]) {
 			res.json({ status: "Not found!"});
 		} else {
-			req.json(result[0]);
+			res.json(result[0]);
 		} 
 	});
 });
